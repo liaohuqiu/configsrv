@@ -1,0 +1,3 @@
+developer_name = {{ developer_name }}
+http_port_static = {{ http_port_static }}
+name = {{ name }}

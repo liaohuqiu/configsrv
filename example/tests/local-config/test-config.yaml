@@ -1,0 +1,4 @@
+kv_config:
+    vars:
+        developer_name: 'huqiu'
+        http_port_static: 9090

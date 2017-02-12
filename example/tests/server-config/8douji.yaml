@@ -1,0 +1,9 @@
+8douji:
+    vars:
+        site_list: 
+            huqiu:
+                developer_name: 'huqiu'
+                http_port_static: 9090
+            zhanxin:
+                developer_name: 'zhanxin'
+                http_port_static: 9091
