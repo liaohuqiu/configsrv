@@ -22,7 +22,8 @@ from . import settings
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^render-config$', views.render_config, name='render_config'),
+    url(r'^render-config$', views.render_config, name='render-config'),
+    url(r'^get-config$', views.get_config, name='get-config'),
     url(r'^admin/', admin.site.urls),
 ]
 if settings.DEBUG:

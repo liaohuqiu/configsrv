@@ -62,3 +62,24 @@ def render_config(request):
         response.status_code = 404
         response.write(error)
         return response
+
+def get_config(request):
+
+    if 'config_file_name' not in request.GET:
+        return HttpResponse('missing config_file_name')
+
+    if 'config_key' not in request.GET:
+        return HttpResponse('missing config_key')
+
+    # default it yaml
+    format = 'yaml'
+    if 'format' in request.GET:
+        format = request.GET['format']
+
+    config_key = request.GET['config_key']
+    config_file_name = request.GET['config_file_name']
+
+    conf = config.Config()
+    config_data = conf.read_config_from_local(config_file_name, config_key)
+    ret = conf.output(config_data, format)
+    return HttpResponse(ret)

@@ -22,6 +22,7 @@ function _run_app_container() {
     local args="$args --restart always"
 
     args="$args -v $tests_dir/server-config:/configsrv/config"
+    args="$args -v $prj_path/../src:/configsrv/src"
 
     run_cmd "docker run $args -d --name $app_container $configsrv_image"
 }
@@ -36,6 +37,11 @@ function run_app() {
 
 function stop_app() {
     stop_container $app_container
+}
+
+function restart_app() {
+    stop_app
+    run_app
 }
 
 function stop() {

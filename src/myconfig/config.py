@@ -1,4 +1,5 @@
 import yaml
+import json
 import os
 from jinja2 import Template
 
@@ -33,6 +34,13 @@ class Config:
             raise Exception('This config type is not supported now: ' +  config_type)
 
         return self._read_config(config, config_key)
+
+    def output(self, data, format):
+        if format == 'json':
+            return json.dumps(data)
+        # default it yaml
+        else:
+            return yaml.dump(data, default_flow_style=False)
 
     def read_config_from_local(self, config_file_name, config_key):
 
