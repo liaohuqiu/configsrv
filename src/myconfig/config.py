@@ -1,11 +1,9 @@
-import yaml
-import json
-import os
-from jinja2 import Template
+from jinja2 import Environment
 
 def render(patten, data):
+    env = Environment(keep_trailing_newline=True)
     patten = patten.decode('utf-8')
-    s = Template(patten)
+    s = env.from_string(patten)
     ret = s.render(data)
     return ret
 
