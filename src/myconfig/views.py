@@ -1,4 +1,5 @@
 import datetime
+import traceback
 
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
@@ -60,7 +61,7 @@ def render_config(request):
     except Exception as error:
         response = HttpResponse()
         response.status_code = 404
-        response.write(error)
+        response.write(traceback.format_exc())
         return response
 
 def get_config(request):
